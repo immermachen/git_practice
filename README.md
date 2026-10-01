@@ -1,2 +1,2 @@
 # Git Practice
-# todo from main
+# todo from main & from feature
