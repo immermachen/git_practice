@@ -80,7 +80,7 @@ and merge it. Then update your local main branch:
 git switch main
 git pull
 
-Repeat this team workflow:
+# Repeat this team workflow:
 
 Pull main -> create a feature branch -> make small commits -> push the branch
 -> open a PR/MR -> review -> merge.
