@@ -81,7 +81,13 @@ git switch main
 git pull
 
 # Repeat this team workflow:
-# test pr 3
+# test pr 53
+# test pr 43
+# test pr 23
+# test pr 13
+# test pr 434
+# test pr 1
+# test pr 2
 
 Pull main -> create a feature branch -> make small commits -> push the branch
 -> open a PR/MR -> review -> merge.
