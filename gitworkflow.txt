@@ -88,6 +88,8 @@ git pull
 # test pr 434
 # test pr 1
 # test pr 2
+Switched to a new branch 'feature/testpr13' 11
+
 
 Pull main -> create a feature branch -> make small commits -> push the branch
 -> open a PR/MR -> review -> merge.
