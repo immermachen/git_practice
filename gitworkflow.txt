@@ -1,0 +1,89 @@
+Git Workflow Practice
+====================
+
+1. Install and configure Git
+
+sudo apt update
+sudo apt install git
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+git config --global init.defaultBranch main
+
+2. Create a repository and make the first commit
+
+mkdir git-practice
+cd git-practice
+git init
+echo "# Git Practice" > README.md
+git add README.md
+git commit -m "docs: add readme"
+
+3. Create a feature branch and merge it
+
+git switch -c feature/add-notes
+echo "My first Git workflow exercise." > notes.txt
+git add notes.txt
+git commit -m "feat: add practice notes"
+
+git switch main
+git merge --no-ff feature/add-notes
+git log --oneline --graph --all
+
+Useful inspection commands:
+
+git status
+git diff
+git diff --staged
+git branch
+git log --oneline --graph --all
+
+4. Practice resolving a conflict
+
+Create a branch and change one line in README.md, then commit:
+
+git switch -c feature/change-title
+# Edit README.md
+git add README.md
+git commit -m "docs: update title"
+
+Switch to main, change the same line differently, and commit:
+
+git switch main
+# Edit the same line in README.md differently
+git add README.md
+git commit -m "docs: revise title"
+git merge feature/change-title
+
+Edit README.md to resolve the conflict, then finish the merge:
+
+git add README.md
+git commit
+
+5. Practice remote collaboration
+
+Create an empty repository on GitHub or GitLab, then use its URL below:
+
+git remote add origin <repository-url>
+git push -u origin main
+
+Create and push a feature branch:
+
+git switch -c feature/something
+# Make a change
+git add <file>
+git commit -m "feat: describe the change"
+git push -u origin feature/something
+
+Open a Pull Request or Merge Request in the web interface, review the changes,
+and merge it. Then update your local main branch:
+
+git switch main
+git pull
+
+Repeat this team workflow:
+
+Pull main -> create a feature branch -> make small commits -> push the branch
+-> open a PR/MR -> review -> merge.
+
+After these basics, practice git restore, git revert, and git stash. Avoid
+git reset --hard while learning because it can discard uncommitted changes.
