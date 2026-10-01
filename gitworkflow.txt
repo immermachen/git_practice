@@ -85,5 +85,6 @@ Repeat this team workflow:
 Pull main -> create a feature branch -> make small commits -> push the branch
 -> open a PR/MR -> review -> merge.
 
+# next step: 
 After these basics, practice git restore, git revert, and git stash. Avoid
 git reset --hard while learning because it can discard uncommitted changes.
