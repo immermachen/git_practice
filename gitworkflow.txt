@@ -88,6 +88,7 @@ git pull
 # test pr 434
 # test pr 1
 # test pr 2
+Switched to branch 'feature/testpr12'
 Switched to a new branch 'feature/testpr13' 11
 
 
