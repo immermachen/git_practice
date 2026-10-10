@@ -95,6 +95,69 @@ Switched to a new branch 'feature/testpr13' 11
 Pull main -> create a feature branch -> make small commits -> push the branch
 -> open a PR/MR -> review -> merge.
 
+
+# solve conflicts by IDE
+
+# 本地解决该 PR 冲突完整步骤（对应截图：`gitworkflow.txt` 文件冲突）
+
+> 
+> 面试英文回答 + 实操命令，适配奇石乐面试。
+> 场景：你的 feature 分支提交 PR，提示`This branch has conflicts that must be resolved`，冲突文件`gitworkflow.txt`，**不用网页编辑器，本地命令行处理**
+
+## 完整操作流程（命令）
+
+```
+#1. 拉取远程最新信息
+git fetch origin
+
+#2. 切换到你当前这个PR对应的本地功能分支
+git checkout feature/testpr3
+
+#3. 方式A：把main合并进当前分支（merge方式，面试常讲）
+git merge origin/main
+```
+
+此时 git 检测到`gitworkflow.txt`冲突，命令行提示冲突，流程暂停。
+
+```
+#4. 打开冲突文件 gitworkflow.txt，IDE里手动处理冲突标记
+# <<<<<<< HEAD       本地分支（你的代码）
+# ...你的修改
+# =======
+# ...main分支上别人提交的修改
+# >>>>>>> origin/main
+
+#5. 编辑完成，保存文件，标记冲突已解决
+git add gitworkflow.txt
+
+#6. 完成本次merge提交
+git commit
+```
+
+```
+#7. 推送到远程，PR页面自动刷新，冲突提示消失
+git push origin feature/testpr3
+```
+
+> 
+> 备选方式 B（rebase，很多外企团队偏好线性历史）
+
+```
+git checkout feature/testpr3
+git rebase origin/main
+# 遇到冲突，修改文件 -> git add 文件
+git rebase --continue
+# 全部完成后推送
+git push origin feature/testpr3
+```
+
+> 
+> ⚠️注意：rebase 改写历史，若远程分支已经被别人使用，push 时可能需要`--force-with-lease`，**团队共享分支慎用**。
+
+
+
+
+
 # next step: 
 After these basics, practice git restore, git revert, and git stash. Avoid
 git reset --hard while learning because it can discard uncommitted changes.
